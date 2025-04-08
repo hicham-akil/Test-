@@ -32,28 +32,29 @@ const Page1 = () => {
 
   return (
     <main>
-      <div>
-        <h2>Countries List</h2>
-
-        <div>
+      <div className="bg-[var(--color-custom-dark-bleu)] flex flex-wrap gap-4">
           {countries.map((country) => (
             <div
               key={country.cca3}
               onClick={() => navigate(`/country/${country.cca3}`,{state:{country}})}
+              className="w-50 h-80 flex rounded-xl bg-[var(--color-custom-blue)] "
             >
-              <div>
+              <div className="">
                 <img
                   src={country.flags.png}
                   alt={country.flags.alt}
+                  className="w-80 h-35"
+                  
                 />
-                <h3>{country.name.common}</h3>
-                <p>{country.region}</p>
-                <p>{country.capital}</p>
-                <p>{country.population}</p>
+              <div className=" ml-5 mt-5">
+                <h1  className="text-white mb-2 ">{country.name.common}</h1>
+                <p className="text-white">{country.region}</p>
+                <p className="text-white">{country.capital}</p>
+                <p className="text-white">{country.population}</p>
               </div>
             </div>
+            </div>
           ))}
-        </div>
       </div>
     </main>
   );
