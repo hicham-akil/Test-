@@ -1,57 +1,62 @@
-import axios from 'axios';
-import React, {  use, useEffect, useState } from 'react'
-import Filter from './Filter';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+const Page1 = () => {
+  const [countries, setCountries] = useState([]);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-const Page1 = ({continent}) => {
-  const [countries,setconteries]=useState([]);
-  const [resultfilter,setresultfilter]=useState([]);
- 
-    
-
-    const fetchdata= async ()=>{
-      try{
-        const response=await axios.get("https://restcountries.com/v3.1/all");
-    
-          setconteries(response.data);
-        
-    
-    }catch(e){
-      console.log(e)
+  const fetchCountries = async () => {
+    try {
+      const response = await fetch("https://restcountries.com/v3.1/all");
+      const data = await response.json();
+      setCountries(data);
+      console.log(data[0]);
+    } catch (e) {
+      setError("Error fetching country data");
+      console.log(e);
     }
-  }
+  };
+
   useEffect(() => {
-    fetchdata()
+    fetchCountries();
   }, []);
-  const filterfunction=()=>{
-    const resultfil=countries.filter((elm)=>elm.continents.lowercase()===continent)
-    setresultfilter(resultfil)
+
+  if (error) {
+    return <p>{error}</p>;
   }
-  
-  useEffect(() => {
-   
-    filterfunction()
-  }, [continent]);
-  useEffect(() =>{
-    console.log(countries);
-  }, [countries]);
+
+  if (!countries.length) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <div className='container bg-[var(--color-custom-dark-blue)]'>
-   <Filter countries={countries} />
+    <main>
+      <div>
+        <h2>Countries List</h2>
 
-{/* {countries.map((counterie,index)=>(
-  < div key={index}>
-  <h1>{counterie.continents}</h1>
-  </div>
-))}         */}
-{resultfilter.map((elm,index)=>(
-  < div key={index}>
-  <h1>{elm}</h1>
-  </div>
-))}        
+        <div>
+          {countries.map((country) => (
+            <div
+              key={country.cca3}
+              onClick={() => navigate(`/country/${country.cca3}`,{state:{country}})}
+            >
+              <div>
+                <img
+                  src={country.flags.png}
+                  alt={country.flags.alt}
+                />
+                <h3>{country.name.common}</h3>
+                <p>{country.region}</p>
+                <p>{country.capital}</p>
+                <p>{country.population}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Page1
+export default Page1;

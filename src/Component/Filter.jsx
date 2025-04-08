@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Page1 from './Page1'
+import ShowResultF from './ShowResultF'
 
 const Filter = ({countries}) => {
     const [continent,setcontinent]=useState('')
- 
-    if (!countries || countries.length === 0) {
-        return <p>Loading countries...</p>;
-      }
+    const [Scountries,setcountries]=useState(countries)
+    useEffect(()=>{
+        setcountries(countries)
+    },[countries])
+    
+
       const handlechange=(continent)=>{
+        // console.log(continent)
            setcontinent(continent)
       }
   return (
@@ -18,7 +22,7 @@ const Filter = ({countries}) => {
             ))}
         </select>
         {continent&&(
-        <Page1 continent={continent}/> 
+        <ShowResultF continent={continent} countries={countries}/> 
         )}
     </div>
   )
