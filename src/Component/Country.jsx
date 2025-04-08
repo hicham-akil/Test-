@@ -7,9 +7,21 @@ const Country = () => {
   console.log(country);
 
   return (
-    <div className='bg-[var(--color-custom-dark-bleu)] text-white min-h-screen flex flex-row flex-wrap gap-2 gap-x-100 '>
-      <img src={country.flags.png} alt={country.flags.alt} className='w-100 h-80 relative left-80 top-60' />
-      <div className='relative left-60 top-70'>
+    <div className='bg-[var(--color-custom-dark-bleu)]'>
+       <div className="bg-[var(--color-custom-dark-bleu)] absolute top-40 left-15 w-20 h-7 flex flex-row items-center justify-center p-2 rounded-md">
+  <button 
+    onClick={() => window.history.back()} 
+    className="flex items-center space-x-2  text-white py-1 bg-[var(--color-custom-dark-bleu)] px-3 rounded-md  transition"
+  >
+    <span className="text-lg">{'<-'}</span>
+    <p className="text-lg">Back</p>
+  </button>
+</div>
+
+    <div className=' text-white min-h-screen flex flex-row flex-wrap gap-2 gap-x-100 '>
+   
+      <img src={country.flags.png} alt={country.flags.alt} className='w-150 h-90 relative left-15 top-60' />
+      <div className='relative top-60'>
         <h1 className='text-3xl ml-2 mb-2'>{country.name.common}</h1>
         <div className=' flex  flex-wrap gap-2 space-x-50'>
         <div className="flex flex-col gap-4">
@@ -44,8 +56,8 @@ const Country = () => {
               <span>
                 {country.currencies
                   ? `${Object.values(country.currencies)[0]?.name} (${
-                      Object.values(country.currencies)[0]?.symbol
-                    })`
+                    Object.values(country.currencies)[0]?.symbol
+                  })`
                   : "N/A"}
               </span>
             </div>
@@ -57,7 +69,7 @@ const Country = () => {
         </div>
 
         {country.borders && (
-      <div className="flex flex-row flex-wrap gap-2 mt-2">
+          <div className="flex flex-row flex-wrap gap-2 mt-2">
             <h3>Border Countries:</h3>
           <div>
               {country.borders.map((border) => (
@@ -67,6 +79,7 @@ const Country = () => {
           </div>
         )}
       </div>
+        </div>
     </div>
   );
 };

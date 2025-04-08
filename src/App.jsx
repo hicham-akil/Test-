@@ -10,9 +10,9 @@ function App() {
   return (
     <>
    <Router>
+   <Navbar />
       <Routes>
         <Route path="/" element={<Page1 />} />
-        <Route path="/" element={<Navbar />} />
         <Route path="/country/:name" element={<Country />} />
       </Routes>
     </Router>

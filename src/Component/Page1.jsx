@@ -32,30 +32,41 @@ const Page1 = () => {
 
   return (
     <main>
-      <div className="bg-[var(--color-custom-dark-bleu)] flex flex-wrap gap-4">
+      <div className="bg-[var(--color-custom-dark-bleu)] ">
+        
+      <div className="flex flex-row flex-wrap gap-4">
           {countries.map((country) => (
             <div
-              key={country.cca3}
-              onClick={() => navigate(`/country/${country.cca3}`,{state:{country}})}
-              className="w-50 h-80 flex rounded-xl bg-[var(--color-custom-blue)] "
+            key={country.cca3}
+            onClick={() => navigate(`/country/${country.cca3}`,{state:{country}})}
+            className="w-90 mt-10 h-90 flex rounded-xl bg-[var(--color-custom-blue)] ml-15 "
             >
               <div className="">
                 <img
                   src={country.flags.png}
                   alt={country.flags.alt}
-                  className="w-80 h-35"
+                  className="w-120 h-35"
                   
-                />
-              <div className=" ml-5 mt-5">
-                <h1  className="text-white mb-2 ">{country.name.common}</h1>
-                <p className="text-white">{country.region}</p>
-                <p className="text-white">{country.capital}</p>
-                <p className="text-white">{country.population}</p>
-              </div>
+                  />
+              <div className="ml-8 mt-7">
+  <h1 className="text-white mb-2">
+    <span className="font-bold">Country: </span>{country.name.common}
+  </h1>
+  <p className="text-white">
+    <span className="font-bold">Region: </span>{country.region}
+  </p>
+  <p className="text-white">
+    <span className="font-bold">Capital: </span>{country.capital}
+  </p>
+  <p className="text-white">
+    <span className="font-bold">Population: </span>{country.population}
+  </p>
+</div>
             </div>
             </div>
           ))}
       </div>
+          </div>
     </main>
   );
 };
