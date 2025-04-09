@@ -1,31 +1,36 @@
-import React, { useEffect, useState } from 'react'
-import Page1 from './Page1'
-import ShowResultF from './ShowResultF'
+import React, { useState } from "react";
 
-const Filter = ({countries}) => {
-    const [continent,setcontinent]=useState('')
-    const [Scountries,setcountries]=useState(countries)
-    useEffect(()=>{
-        setcountries(countries)
-    },[countries])
-    
+const Filter = ({ countries, setFilteredCountries }) => {
+  const [continent, setContinent] = useState("");
 
-      const handlechange=(continent)=>{
-        // console.log(continent)
-           setcontinent(continent)
-      }
+  const uniqueContinents = [...new Set(countries.map((c) => c.continents).flat())];
+
+  const handleFilterChange = (e) => {
+    const selectedContinent = e.target.value;
+    setContinent(selectedContinent);
+    setFilteredCountries(countries.filter((c) => c.continents.includes(selectedContinent)));
+  };
+
   return (
-    <div>
-        <select name="" onChange={(e)=>handlechange(e.target.value)} id="">
-            {countries.map((counterie,index)=>(
-                <option value={counterie.continents} key={index}>{counterie.continents}</option>
-            ))}
+    <div className="bg-[var(--color-custom-dark-bleu)]">
+      <div className="w-40 h-10 text-center bg-[var(--color-custom-blue)] p-2 text-sm rounded text-white absolute top-40 right-42">
+        <select
+          onChange={handleFilterChange}
+          className="bg-[var(--color-custom-blue)] text-white text-sm"
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select a continent
+          </option>
+          {uniqueContinents.map((cont, index) => (
+            <option key={index} value={cont}>
+              {cont}
+            </option>
+          ))}
         </select>
-        {continent&&(
-        <ShowResultF continent={continent} countries={countries}/> 
-        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;
