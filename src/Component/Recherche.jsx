@@ -10,8 +10,8 @@ const Recherche = ({setFilteredCountries,countries}) => {
       }
     
   return (
-    <div className='bg-[var(--color-custom-light-background)] dark:bg-[var(--color-custom-dark-blue)] text-[var(--color-text-black)] dark:text-[var(--color-text-light)] '>
-        <div className='bg-[var(--color-custom-light-background)] dark:bg-[var(--color-custom-dark-blue)] rounded-sm w-110 h-12 absolute top-40  left-30 '>
+    <div className='dark:bg-dark-blue dark:text-white '>
+        <div className='dark:bg-dark-blue dark:text-white rounded-sm w-110 h-12 absolute top-40  left-30 '>
             
         <form action="" className='flex space-bettwen mt-2 ' onSubmit={(e)=>recherchefunction(e)}>
 

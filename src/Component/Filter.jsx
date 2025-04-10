@@ -12,11 +12,11 @@ const Filter = ({ countries, setFilteredCountries }) => {
   };
 
   return (
-    <div className="bg-[var(--color-custom-light-background)] dark:bg-[var(--color-custom-dark-blue)]">
-      <div className="w-40 h-10 text-center bg-[var(--color-custom-light-background)] dark:bg-[var(--color-custom-dark-blue)] p-2 text-sm rounded text-[var(--color-text-black)] dark:text-[var(--color-text-light)] absolute top-40 right-62">
+    <div className="dark:bg-dark-blue dark:text-white">
+      <div className="w-40 h-10 text-center dark:bg-dark-blue dark:text-white p-2 text-sm rounded  text-[var(--color-text-black)]  absolute top-40 right-62">
         <select
           onChange={handleFilterChange}
-          className="bg-[var(--color-custom-light-background)] dark:bg-[var(--color-custom-dark-blue)] text-[var(--color-text-black)] dark:text-[var(--color-text-light)] text-sm"
+          className="dark:bg-dark-blue dark:text-white text-[var(--color-text-black)] text-sm"
           defaultValue=""
         >
           <option value="" disabled>

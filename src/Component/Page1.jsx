@@ -14,13 +14,13 @@ const Page1 = ({ datatoshow }) => {
 
   return (
     <main>
-      <div className="bg-[var(--color-custom-light-background)] dark:bg-[var(--color-custom-dark-blue)]">
+      <div className="dark:bg-dark-blue dark:text-white ">
         <div className="flex flex-row flex-wrap gap-4">
           {dataArray?.map((country) => (
             <div
               key={country.cca3}
               onClick={() => navigate(`/country/${country.cca3}`, { state: { country } })}
-              className="w-70 mt-50 h-100 flex rounded-xl bg-[var(--color-custom-light-background)] dark:bg-[var(--color-custom-dark-blue)] ml-30 cursor-pointer"
+              className="w-70 mt-50 h-100 flex rounded-xl dark:bg-dark-blue dark:text-white ml-30 cursor-pointer"
             >
               <div>
                 <img
@@ -29,16 +29,16 @@ const Page1 = ({ datatoshow }) => {
                   className="w-120 h-35"
                 />
                 <div className="ml-8 mt-7">
-                  <h1 className="mb-2 text-[var(--color-text-black)] dark:text-[var(--color-text-light)]">
+                  <h1 className="mb-2 dark:bg-dark-blue dark:text-white">
                     <span className="font-bold">Country: </span>{country.name?.common}
                   </h1>
-                  <p className="text-[var(--color-text-black)] dark:text-[var(--color-text-light)]">
+                  <p className="dark:bg-dark-blue dark:text-white">
                     <span className="font-bold">Region: </span>{country.region}
                   </p>
-                  <p className="text-[var(--color-text-black)] dark:text-[var(--color-text-light)]">
+                  <p className="dark:bg-dark-blue dark:text-white">
                     <span className="font-bold">Capital: </span>{country.capital?.[0] || "N/A"}
                   </p>
-                  <p className="text-[var(--color-text-black)] dark:text-[var(--color-text-light)]">
+                  <p className="dark:bg-dark-blue dark:text-white">
                     <span className="font-bold">Population: </span>{country.population.toLocaleString()}
                   </p>
                 </div>
