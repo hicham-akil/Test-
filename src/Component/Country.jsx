@@ -7,20 +7,20 @@ const Country = () => {
   console.log(country);
 
   return (
-    <div className='bg-[var(--color-custom-dark-bleu)]'>
-       <div className="bg-[var(--color-custom-dark-bleu)] absolute top-40 left-15 w-20 h-7 flex flex-row items-center justify-center p-2 rounded-md">
+    <div className='bg-[var(--color-custom-dark-blue)]'>
+       <div className="bg-[var(--color-custom-dark-blue)] absolute top-40 left-15 w-20 h-7 flex flex-row items-center justify-center p-2 rounded-md">
   <button 
     onClick={() => window.history.back()} 
-    className="flex items-center space-x-2  text-white py-1 bg-[var(--color-custom-dark-bleu)] px-3 rounded-md  transition"
+    className="flex items-center space-x-2 w-30 h-10 text-white py-1 bg-[var(--color-custom-blue)] px-3 rounded-md  transition"
   >
-    <span className="text-lg">{'<-'}</span>
-    <p className="text-lg">Back</p>
+    <span className="text-sm">{'<-'}</span>
+    <p className="text-sm ">Back</p>
   </button>
 </div>
 
     <div className=' text-white min-h-screen flex flex-row flex-wrap gap-2 gap-x-100 '>
    
-      <img src={country.flags.png} alt={country.flags.alt} className='w-150 h-90 relative left-15 top-60' />
+      <img src={country.flags?.png} alt={country.flags?.alt} className='w-150 h-90 relative left-15 top-60' />
       <div className='relative top-60'>
         <h1 className='text-3xl ml-2 mb-2'>{country.name.common}</h1>
         <div className=' flex  flex-wrap gap-2 space-x-50'>

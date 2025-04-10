@@ -1,6 +1,18 @@
 @import "tailwindcss";
-@theme {
-    --color-custom-blue: hsl(209, 23%, 22%);
-    --color-custom-dark-bleu: hsl(207, 26%, 17%);
 
-  }
+/* Light mode colors */
+:root {
+  --color-custom-blue: hsl(209, 23%, 22%);
+  --color-custom-dark-blue: hsl(207, 26%, 17%);
+  --color-custom-light-background: #ffffff;
+  --color-text-light: #ffffff; /* White text color in light mode */
+  --color-text-black: #000000; /* Black text color in light mode */
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-custom-blue: hsl(207, 26%, 17%); /* Dark mode blue */
+  --color-custom-dark-blue: #ffffff; /* Light mode background */
+  --color-text-light: #000000; /* Black text color in dark mode */
+  --color-text-black: #ffffff; /* White text color in dark mode */
+}

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Filter from "./Filter";
 import Page1 from "./Page1";
+import Recherche from "./Recherche";
 
 const CountriesApp = () => {
   const [countries, setCountries] = useState([]);
+  const [recherche, setrecherche]= useState([]);
   const [error, setError] = useState(null);
   const [filteredCountries, setFilteredCountries] = useState([]);
 
@@ -26,9 +28,11 @@ const CountriesApp = () => {
   if (error) return <p>{error}</p>;
   if (!countries.length) return <p>Loading...</p>;
 
+
   return (
     <div>
       <Filter countries={countries} setFilteredCountries={setFilteredCountries} />
+      <Recherche  setFilteredCountries={setFilteredCountries} countries={countries}/>
       <Page1 datatoshow={filteredCountries} />
     </div>
   );

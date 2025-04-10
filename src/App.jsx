@@ -15,9 +15,10 @@ function App() {
    <Navbar />
   
       <Routes>
+        <Route path="/" element={ <CountriesApp/>} />
         <Route path="/page1" element={<Page1 />} />
         <Route path="/country/:name" element={<Country />} />
-        <Route path="/" element={ <CountriesApp/>} />
+           <Route path="*" element={<div>Page Not Found</div>} />
       </Routes>
     </Router>
     </>
