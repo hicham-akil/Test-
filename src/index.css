@@ -1,21 +1,17 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
-@import "tailwindcss";
-
-/* prevent automatic darkmode */
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *)); /* if you’re using postcss */
 
 @theme {
-  /* Setup colors variables */
-  --color-dark-blue: hsl(209, 23%, 22%); /* Dark Mode Elements*/
-  --color-very-darkmode-blue: hsl(207, 26%, 17%); /* Dark Mode Background */
-  --color-very-dark-blue: hsl(200, 15%, 8%); /* Light Mode Text */
-  --color-dark-gray: hsl(0, 0%, 52%); /* Light Mode Input */
-  --color-very-light-gray: hsl(0, 0%, 98%); /* Light Mode Background */
-  --color-white: #f0f0f0f; /* Dark Mode Text & Light Mode Elements */
-  --color-black: #000;
+  --color-dark-blue: hsl(209, 23%, 22%);
+  --color-very-darkmode-blue: hsl(207, 26%, 17%);
+  --color-very-dark-blue: hsl(200, 15%, 8%);
+  --color-dark-gray: hsl(0, 0%, 52%);
+  --color-very-light-gray: hsl(0, 0%, 98%);
+  --color-white: #fff;
 }
+
 body {
   font-family: "Nunito Sans", sans-serif;
 }

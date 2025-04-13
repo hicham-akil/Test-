@@ -13,41 +13,45 @@ const Page1 = ({ datatoshow }) => {
   }, [dataArray, navigate]);
 
   return (
-    <main>
-      <div className="dark:bg-dark-blue dark:text-white ">
-        <div className="flex flex-row flex-wrap gap-4">
-          {dataArray?.map((country) => (
-            <div
-              key={country.cca3}
-              onClick={() => navigate(`/country/${country.cca3}`, { state: { country } })}
-              className="w-70 mt-50 h-100 flex rounded-xl dark:bg-dark-blue dark:text-white ml-30 cursor-pointer"
+    <div className=" mx-auto mt-14  dark:bg-very-darkmode-blue">
+      <ul className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {dataArray
+          .filter((country) => country.name.common.toLowerCase() !== "israel") // Fuckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk Israel
+          .map((country) => (
+            <li
+onClick={() => navigate(`/country/${country.cca3}`, { state: { country } })}
+
+              key={country.name.common}
+              className=" dark:bg-very-darkmode-blue lg:h-[380px] rounded-md shadow overflow-hidden dark:bg-dark-blue"
             >
-              <div>
-                <img
-                  src={country.flags?.png}
-                  alt={country.flags?.alt || "Country Flag"}
-                  className="w-120 h-35"
-                />
-                <div className="ml-8 mt-7">
-                  <h1 className="mb-2 dark:bg-dark-blue dark:text-white">
-                    <span className="font-bold">Country: </span>{country.name?.common}
-                  </h1>
-                  <p className="dark:bg-dark-blue dark:text-white">
-                    <span className="font-bold">Region: </span>{country.region}
-                  </p>
-                  <p className="dark:bg-dark-blue dark:text-white">
-                    <span className="font-bold">Capital: </span>{country.capital?.[0] || "N/A"}
-                  </p>
-                  <p className="dark:bg-dark-blue dark:text-white">
-                    <span className="font-bold">Population: </span>{country.population.toLocaleString()}
-                  </p>
+              <img
+                src={country.flags.png}
+                alt="country"
+                loading="lazy"
+                className="w-full md:h-full md:max-h-[212px] lg:max-h-[182px] xl:max-h-[210px] cursor-pointer"
+                onClick={() => navigate(`/${country.name.common}`)}
+              />
+              <div className="px-5 py-7">
+                <h2 className="text-xl font-bold mb-4">
+                  {country.name.common}
+                </h2>
+                <div className="flex gap-1 items-center">
+                  <span className="font-bold text-sm">Population:</span>
+                  <span>{country.population.toLocaleString()}</span>
+                </div>
+                <div className="flex gap-1 items-center">
+                  <span className="font-bold text-sm">Region:</span>
+                  <span>{country.region}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="font-bold text-sm">Capital:</span>
+                  <span>{country.capital}</span>
                 </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
-      </div>
-    </main>
+      </ul>
+    </div>
   );
 };
 

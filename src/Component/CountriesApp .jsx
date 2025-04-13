@@ -30,10 +30,15 @@ const CountriesApp = () => {
 
 
   return (
-    <div>
+    <div className="text-very-dark-blue dark:text-white dark:bg-very-darkmode-blue">
+      <main
+        className="main p-4 bg-very-light-gray dark:bg-very-darkmode-blue"
+        style={{ minHeight: "calc(100vh - 80px)" }}
+      >
       <Filter countries={countries} setFilteredCountries={setFilteredCountries} />
       <Recherche  setFilteredCountries={setFilteredCountries} countries={countries}/>
       <Page1 datatoshow={filteredCountries} />
+    </main>
     </div>
   );
 };
